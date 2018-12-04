@@ -1,0 +1,50 @@
+ $INPUT
+ targtY=0.278     ! Y  between 0.25 and 0.37
+ targtFe=0.065    ! [Fe/H] between -1.5 and +0.3
+ Age= 0.        ! age in Gyr: if negative, interactive input
+                  !             if 0., read 'YaPsI.age'
+ YYout='test.out' ! output file name: if ' ', interactive input
+                  ! if 'each', the output file name will be asked 
+                  !   for each age, and stored in seperate files.
+ Lremap=.TRUE.    ! if .TRUE., re-map the EEPs to set MSTO at same grid index 
+ $END
+ $ISET1         ! the set for Y=0.25
+ NYYiso=5
+ YYiso(1)='../WL11/yapsi_w_X0p749455_Z0p000545.dat'! the file for [Fe/H]=-1.5
+ YYiso(2)='../WL11/yapsi_w_X0p748279_Z0p001721.dat'! the file for [Fe/H]=-1.0
+ YYiso(3)='../WL11/yapsi_w_X0p744584_Z0p005416.dat'! the file for [Fe/H]=-0.5
+ YYiso(4)='../WL11/yapsi_w_X0p733138_Z0p016862.dat'! the file for [Fe/H]= 0.0
+ YYiso(5)='../WL11/yapsi_w_X0p717092_Z0p032908.dat'! the file for [Fe/H]=+0.3
+ $END
+ $ISET2         ! the set for Y=0.28
+ NYYiso=5
+ YYiso(1)='../WL11/yapsi_w_X0p719477_Z0p000523.dat'! the file for [Fe/H]=-1.5
+ YYiso(2)='../WL11/yapsi_w_X0p718348_Z0p001652.dat'! the file for [Fe/H]=-1.0
+ YYiso(3)='../WL11/yapsi_w_X0p714801_Z0p005199.dat'! the file for [Fe/H]=-0.5
+ YYiso(4)='../WL11/yapsi_w_X0p703812_Z0p016188.dat'! the file for [Fe/H]= 0.0
+ YYiso(5)='../WL11/yapsi_w_X0p688408_Z0p031592.dat'! the file for [Fe/H]=+0.3
+ $END
+ $ISET3         ! the set for Y=0.31
+ NYYiso=5
+ YYiso(1)='../WL11/yapsi_w_X0p689499_Z0p000501.dat'! the file for [Fe/H]=-1.5
+ YYiso(2)='../WL11/yapsi_w_X0p688417_Z0p001583.dat'! the file for [Fe/H]=-1.0
+ YYiso(3)='../WL11/yapsi_w_X0p685018_Z0p004982.dat'! the file for [Fe/H]=-0.5
+ YYiso(4)='../WL11/yapsi_w_X0p674487_Z0p015513.dat'! the file for [Fe/H]= 0.0
+ YYiso(5)='../WL11/yapsi_w_X0p659725_Z0p030275.dat'! the file for [Fe/H]=+0.3
+ $END
+ $ISET4         ! the set for Y=0.34
+ NYYiso=5
+ YYiso(1)='../WL11/yapsi_w_X0p659520_Z0p000480.dat'! the file for [Fe/H]=-1.5
+ YYiso(2)='../WL11/yapsi_w_X0p658485_Z0p001515.dat'! the file for [Fe/H]=-1.0
+ YYiso(3)='../WL11/yapsi_w_X0p655234_Z0p004766.dat'! the file for [Fe/H]=-0.5
+ YYiso(4)='../WL11/yapsi_w_X0p645161_Z0p014839.dat'! the file for [Fe/H]= 0.0
+ YYiso(5)='../WL11/yapsi_w_X0p631041_Z0p028959.dat'! the file for [Fe/H]=+0.3
+ $END
+ $ISET5         ! the set for Y=0.37
+ NYYiso=5
+ YYiso(1)='../WL11/yapsi_w_X0p629542_Z0p000458.dat'! the file for [Fe/H]=-1.5
+ YYiso(2)='../WL11/yapsi_w_X0p628554_Z0p001446.dat'! the file for [Fe/H]=-1.0
+ YYiso(3)='../WL11/yapsi_w_X0p625451_Z0p004549.dat'! the file for [Fe/H]=-0.5
+ YYiso(4)='../WL11/yapsi_w_X0p615836_Z0p014164.dat'! the file for [Fe/H]= 0.0
+ YYiso(5)='../WL11/yapsi_w_X0p602357_Z0p027643.dat'! the file for [Fe/H]=+0.3
+ $END
