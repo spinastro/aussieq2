@@ -19,11 +19,12 @@ def make_age_grid_HRD(age_steps):
         writer.writerows(zip(intervals))
 
 
-def create_model_HRD(age_steps=[0.001,0.01,0.020],FeH=0.07,Y=0.280,grid="WL11"):
+def create_model_HRD(age_steps=[0.001,0.01,0.020],FeH=0.05,Y=0.280,grid="WL11"):
     model_final={"age":[],"mass":[],"logT":[],"logL":[],"logg":[],"Mv":[]}
     make_age_grid_HRD(age_steps)
     make_Fe_Y_grid(FeH,Y,grid)
-    os.system('rm '+INTERP_PATH+'/test.out')
+    if len(glob.glob(INTERP_PATH+'/test.out')) > 0:
+        os.system('rm '+INTERP_PATH+'/test.out')
     FNULL = open(os.devnull, 'w')
     p = subprocess.Popen('./interp', cwd=INTERP_PATH,stdout=FNULL, stderr=subprocess.STDOUT)
     p.wait()
@@ -37,6 +38,7 @@ def create_model_HRD(age_steps=[0.001,0.01,0.020],FeH=0.07,Y=0.280,grid="WL11"):
     return(model_final)
 
 def plot_HRD(age_steps=[0.03,0.035,0.04,0.05,0.1,0.2,0.3,0.5],xlim=[6200,5500],ylim=[4.65,4.4],feh=0.0):
+    print age_steps, feh
     model=create_model_HRD(age_steps=age_steps,FeH=0.05+feh)
     for i in np.arange(len(age_steps)):
         a = model['age'] == age_steps[i]
@@ -50,8 +52,12 @@ def plot_HRD(age_steps=[0.03,0.035,0.04,0.05,0.1,0.2,0.3,0.5],xlim=[6200,5500],y
 def plot_HRD_star(Data,star_name,age_steps=[0.03,0.035,0.04,0.05,0.1,0.2,0.3,0.5],xlim=[6200,5500],ylim=[4.65,4.4]):
     f = Data['id'] == star_name
     star=Data[f]
-    plt.errorbar(star['teff'],star['logg'],xerr=star['err_teff'],yerr=star['err_logg'],label=star_name, color='black')
-    plot_HRD(age_steps,xlim,ylim,feh=Data['feh'])
-    plt.savefig('HRD_star.pdf', bbox_inches='tight')
+    x=[star['teff'][0],star['teff'][0]]
+    y=[star['logg'][0],star['logg'][0]]
+    xer=[star['err_teff'][0],star['err_teff'][0]]
+    yer=[star['err_logg'][0],star['err_logg'][0]]
+    plt.errorbar(x,y,xerr=xer,yerr=yer,label=star_name, color='black')
+    plot_HRD(age_steps,xlim,ylim,feh=star['feh'][0])
+    plt.savefig('HRD_'+star_name+'.pdf', bbox_inches='tight')
     plt.close()
 

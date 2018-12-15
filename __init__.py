@@ -1,10 +1,10 @@
 import matplotlib
 matplotlib.use('Agg')
-import interpolator
+from interpolator import *
 import age
 from config import *
 from star import *
-import HRDplot
+from HRDplot import *
 
 __author__ = 'Lorenzo Spina (Monash University)'
 __email__ = 'lorenzo.spina@monash.edu'
