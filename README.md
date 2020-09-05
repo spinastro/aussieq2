@@ -1,7 +1,6 @@
 # aussieq2
 **aussieq2** calculate stellar ages and massess starting from the stellar parameters (temperature, gravity, and V magnitude) and a grid of isochrones. 
 
-![alt text](HIP10175_age.pdf?raw=true)
-<img src="HIP10175_age.pdf?raw=true">
+![alt text](age_prob.png "Example of the age probability distribution calculated for the star HIP 10175")
 
 It also creades HR diagrams overplotting a det of isochrones and the stellar parameters (see this example: [HRD_plots.ipynb](https://github.com/spinastro/aussieq2/blob/master/HRD_plots.ipynb)).
