@@ -1,2 +1,2 @@
 # aussieq2
-Calculate stellar ages from isochrones
+**aussieq2** calculate stellar ages and massess from the stellar parameters (temperature, gravity, and V magnitude) and a grid of isochrones.
